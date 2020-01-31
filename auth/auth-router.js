@@ -15,7 +15,7 @@ router.post('/register', (req, res) => {
 
   Users.add(user)
     .then(saved => {
-      res.status(200).json(saved);
+      res.status(201).json(saved);
     })
     .catch(err => {
       console.log(err)
@@ -47,8 +47,7 @@ router.post('/login', (req, res) => {
 function signToken(user) {
   const payload = {
     userId: user.id,
-    username: user.name,
-    department: user.department
+    username: user.name
   };
 
   const options = {
